@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+# ./csv_parser csv_file delim pos1 pos2 ...
+
+import csv
+import sys
+
+f = open(sys.argv[1], 'rt')
+
+csv.register_dialect('delim',delimiter=sys.argv[2])
+
+try:
+    reader = csv.reader(f, dialect='delim')
+    writer = csv.writer(sys.stdout)
+    for row in reader:
+        l = []
+        for p in range(3, len(sys.argv)):
+            l.append(str(row[int(sys.argv[p])-1]).strip(" "))
+        writer.writerow(l)
+finally:
+    f.close()
+    sys.stdout.flush()
