@@ -1,0 +1,1275 @@
+<html>
+    <body>
+    <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="js/datamaps.world.min.js"></script>
+    <script>
+            imported_data = [{
+                "fillKey": "Low income",
+                "latitude": 33.0,
+                "longitude": 65.0,
+                "name": "Afghanistan diabetes 8.07000000000000%",
+                "radius": 10.0875
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 41.0,
+                "longitude": 20.0,
+                "name": "Albania diabetes 2.57000000000000%",
+                "radius": 3.2125
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 28.0,
+                "longitude": 3.0,
+                "name": "Algeria diabetes 7.29000000000000%",
+                "radius": 9.112499999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 42.5,
+                "longitude": 1.5,
+                "name": "Andorra diabetes 5.35000000000000%",
+                "radius": 6.687499999999999
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -12.5,
+                "longitude": 18.5,
+                "name": "Angola diabetes 2.61000000000000%",
+                "radius": 3.2625
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 17.05,
+                "longitude": -61.8,
+                "name": "Antigua and Barbuda diabetes 13.08000000000000%",
+                "radius": 16.35
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": -34.0,
+                "longitude": -64.0,
+                "name": "Argentina diabetes 5.65000000000000%",
+                "radius": 7.062500000000001
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 40.0,
+                "longitude": 45.0,
+                "name": "Armenia diabetes 2.58000000000000%",
+                "radius": 3.225
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 12.5,
+                "longitude": -69.9666666667,
+                "name": "Aruba diabetes 13.03000000000000%",
+                "radius": 16.287499999999998
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": -27.0,
+                "longitude": 133.0,
+                "name": "Australia diabetes 4.08000000000000%",
+                "radius": 5.1000000000000005
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 47.3333333333,
+                "longitude": 13.3333333333,
+                "name": "Austria diabetes 6.29000000000000%",
+                "radius": 7.8625
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 40.5,
+                "longitude": 47.5,
+                "name": "Azerbaijan diabetes 2.56000000000000%",
+                "radius": 3.2
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 24.25,
+                "longitude": -76.0,
+                "name": "Bahamas, The diabetes 12.84000000000000%",
+                "radius": 16.05
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 26.0,
+                "longitude": 50.55,
+                "name": "Bahrain diabetes 21.87000000000000%",
+                "radius": 27.337500000000002
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 24.0,
+                "longitude": 90.0,
+                "name": "Bangladesh diabetes 6.89000000000000%",
+                "radius": 8.612499999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 13.1666666667,
+                "longitude": -59.5333333333,
+                "name": "Barbados diabetes 12.35000000000000%",
+                "radius": 15.437499999999998
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 53.0,
+                "longitude": 28.0,
+                "name": "Belarus diabetes 5.07000000000000%",
+                "radius": 6.3375
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 50.8333333333,
+                "longitude": 4.0,
+                "name": "Belgium diabetes 4.66000000000000%",
+                "radius": 5.825
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 17.25,
+                "longitude": -88.75,
+                "name": "Belize diabetes 15.88000000000000%",
+                "radius": 19.85
+            }, {
+                "fillKey": "Low income",
+                "latitude": 9.5,
+                "longitude": 2.25,
+                "name": "Benin diabetes 1.54000000000000%",
+                "radius": 1.925
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 32.3333333333,
+                "longitude": -64.75,
+                "name": "Bermuda diabetes 12.77000000000000%",
+                "radius": 15.962499999999999
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 27.5,
+                "longitude": 90.5,
+                "name": "Bhutan diabetes 5.83000000000000%",
+                "radius": 7.2875
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -17.0,
+                "longitude": -65.0,
+                "name": "Bolivia diabetes 7.28000000000000%",
+                "radius": 9.1
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 44.0,
+                "longitude": 18.0,
+                "name": "Bosnia and Herzegovina diabetes 9.60000000000000%",
+                "radius": 12.0
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -22.0,
+                "longitude": 24.0,
+                "name": "Botswana diabetes 3.90000000000000%",
+                "radius": 4.875
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -10.0,
+                "longitude": -55.0,
+                "name": "Brazil diabetes 8.70000000000000%",
+                "radius": 10.874999999999998
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 4.5,
+                "longitude": 114.666666667,
+                "name": "Brunei Darussalam diabetes 8.03000000000000%",
+                "radius": 10.0375
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 43.0,
+                "longitude": 25.0,
+                "name": "Bulgaria diabetes 5.04000000000000%",
+                "radius": 6.3
+            }, {
+                "fillKey": "Low income",
+                "latitude": 13.0,
+                "longitude": -2.0,
+                "name": "Burkina Faso diabetes 3.72000000000000%",
+                "radius": 4.65
+            }, {
+                "fillKey": "Low income",
+                "latitude": -3.5,
+                "longitude": 30.0,
+                "name": "Burundi diabetes 4.83000000000000%",
+                "radius": 6.0375
+            }, {
+                "fillKey": "Low income",
+                "latitude": 13.0,
+                "longitude": 105.0,
+                "name": "Cambodia diabetes 2.96000000000000%",
+                "radius": 3.6999999999999997
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 6.0,
+                "longitude": 12.0,
+                "name": "Cameroon diabetes 5.92000000000000%",
+                "radius": 7.3999999999999995
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 60.0,
+                "longitude": -95.0,
+                "name": "Canada diabetes 9.41000000000000%",
+                "radius": 11.762500000000001
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 16.0,
+                "longitude": -24.0,
+                "name": "Cabo Verde diabetes 5.85000000000000%",
+                "radius": 7.3125
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 19.5,
+                "longitude": -80.5,
+                "name": "Cayman Islands diabetes 12.77000000000000%",
+                "radius": 15.962499999999999
+            }, {
+                "fillKey": "Low income",
+                "latitude": 7.0,
+                "longitude": 21.0,
+                "name": "Central African Republic diabetes 7.34000000000000%",
+                "radius": 9.175
+            }, {
+                "fillKey": "Low income",
+                "latitude": 15.0,
+                "longitude": 19.0,
+                "name": "Chad diabetes 5.77000000000000%",
+                "radius": 7.2124999999999995
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": -30.0,
+                "longitude": -71.0,
+                "name": "Chile diabetes 11.19000000000000%",
+                "radius": 13.9875
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 35.0,
+                "longitude": 105.0,
+                "name": "China diabetes 8.64000000000000%",
+                "radius": 10.8
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 4.0,
+                "longitude": -72.0,
+                "name": "Colombia diabetes 7.26000000000000%",
+                "radius": 9.075
+            }, {
+                "fillKey": "Low income",
+                "latitude": -12.1666666667,
+                "longitude": 44.25,
+                "name": "Comoros diabetes 8.38000000000000%",
+                "radius": 10.475000000000001
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -1.0,
+                "longitude": 15.0,
+                "name": "Congo, Rep. diabetes 5.91000000000000%",
+                "radius": 7.387499999999999
+            }, {
+                "fillKey": "Low income",
+                "latitude": 0.0166666666667,
+                "longitude": 25.0,
+                "name": "Congo, Dem. Rep. diabetes 7.56000000000000%",
+                "radius": 9.45
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 10.0,
+                "longitude": -84.0,
+                "name": "Costa Rica diabetes 9.50000000000000%",
+                "radius": 11.875
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 8.0,
+                "longitude": -5.0,
+                "name": "C\u00f4te d'Ivoire diabetes 5.56000000000000%",
+                "radius": 6.949999999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 45.1666666667,
+                "longitude": 15.5,
+                "name": "Croatia diabetes 5.52000000000000%",
+                "radius": 6.8999999999999995
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 21.5,
+                "longitude": -80.0,
+                "name": "Cuba diabetes 6.70000000000000%",
+                "radius": 8.375
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 12.1666666667,
+                "longitude": -69.0,
+                "name": "Cura\u00e7ao diabetes 12.82000000000000%",
+                "radius": 16.025
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 35.0,
+                "longitude": 33.0,
+                "name": "Cyprus diabetes 9.26000000000000%",
+                "radius": 11.575
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 49.75,
+                "longitude": 15.5,
+                "name": "Czech Republic diabetes 6.59000000000000%",
+                "radius": 8.2375
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 56.0,
+                "longitude": 10.0,
+                "name": "Denmark diabetes 6.05000000000000%",
+                "radius": 7.5625
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 11.5,
+                "longitude": 43.0,
+                "name": "Djibouti diabetes 6.36000000000000%",
+                "radius": 7.95
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 15.4166666667,
+                "longitude": -61.3333333333,
+                "name": "Dominica diabetes 10.99000000000000%",
+                "radius": 13.737499999999999
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 19.0,
+                "longitude": -70.6666666667,
+                "name": "Dominican Republic diabetes 11.35000000000000%",
+                "radius": 14.1875
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -2.0,
+                "longitude": -77.5,
+                "name": "Ecuador diabetes 5.91000000000000%",
+                "radius": 7.387499999999999
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 27.0,
+                "longitude": 30.0,
+                "name": "Egypt, Arab Rep. diabetes 16.56000000000000%",
+                "radius": 20.7
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 13.8333333333,
+                "longitude": -88.9166666667,
+                "name": "El Salvador diabetes 11.75000000000000%",
+                "radius": 14.6875
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 2.0,
+                "longitude": 10.0,
+                "name": "Equatorial Guinea diabetes 6.13000000000000%",
+                "radius": 7.6625
+            }, {
+                "fillKey": "Low income",
+                "latitude": 15.0,
+                "longitude": 39.0,
+                "name": "Eritrea diabetes 5.73000000000000%",
+                "radius": 7.1625000000000005
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 59.0,
+                "longitude": 26.0,
+                "name": "Estonia diabetes 5.65000000000000%",
+                "radius": 7.062500000000001
+            }, {
+                "fillKey": "Low income",
+                "latitude": 8.0,
+                "longitude": 38.0,
+                "name": "Ethiopia diabetes 5.47000000000000%",
+                "radius": 6.8374999999999995
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 62.0,
+                "longitude": -7.0,
+                "name": "Faroe Islands diabetes 5.38000000000000%",
+                "radius": 6.7250000000000005
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -18.0,
+                "longitude": 175.0,
+                "name": "Fiji diabetes 10.88000000000000%",
+                "radius": 13.600000000000001
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 64.0,
+                "longitude": 26.0,
+                "name": "Finland diabetes 5.77000000000000%",
+                "radius": 7.2124999999999995
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 46.0,
+                "longitude": 2.0,
+                "name": "France diabetes 5.16000000000000%",
+                "radius": 6.45
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": -15.0,
+                "longitude": -140.0,
+                "name": "French Polynesia diabetes 24.42000000000000%",
+                "radius": 30.525000000000002
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -1.0,
+                "longitude": 11.75,
+                "name": "Gabon diabetes 10.71000000000000%",
+                "radius": 13.387500000000003
+            }, {
+                "fillKey": "Low income",
+                "latitude": 13.4666666667,
+                "longitude": -16.5666666667,
+                "name": "Gambia, The diabetes 1.96000000000000%",
+                "radius": 2.45
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 42.0,
+                "longitude": 43.5,
+                "name": "Georgia diabetes 2.55000000000000%",
+                "radius": 3.1875
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 51.0,
+                "longitude": 9.0,
+                "name": "Germany diabetes 7.93000000000000%",
+                "radius": 9.9125
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 8.0,
+                "longitude": -2.0,
+                "name": "Ghana diabetes 3.80000000000000%",
+                "radius": 4.75
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 39.0,
+                "longitude": 22.0,
+                "name": "Greece diabetes 4.81000000000000%",
+                "radius": 6.0125
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 12.1166666667,
+                "longitude": -61.6666666667,
+                "name": "Grenada diabetes 9.22000000000000%",
+                "radius": 11.525
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 13.4666666667,
+                "longitude": 144.783333333,
+                "name": "Guam diabetes 20.05000000000000%",
+                "radius": 25.0625
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 15.5,
+                "longitude": -90.25,
+                "name": "Guatemala diabetes 10.84000000000000%",
+                "radius": 13.55
+            }, {
+                "fillKey": "Low income",
+                "latitude": 11.0,
+                "longitude": -10.0,
+                "name": "Guinea diabetes 4.37000000000000%",
+                "radius": 5.4625
+            }, {
+                "fillKey": "Low income",
+                "latitude": 12.0,
+                "longitude": -15.0,
+                "name": "Guinea-Bissau diabetes 3.79000000000000%",
+                "radius": 4.7375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 5.0,
+                "longitude": -59.0,
+                "name": "Guyana diabetes 15.84000000000000%",
+                "radius": 19.8
+            }, {
+                "fillKey": "Low income",
+                "latitude": 19.0,
+                "longitude": -72.4166666667,
+                "name": "Haiti diabetes 6.70000000000000%",
+                "radius": 8.375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 15.0,
+                "longitude": -86.5,
+                "name": "Honduras diabetes 11.69000000000000%",
+                "radius": 14.6125
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 22.25,
+                "longitude": 114.166666667,
+                "name": "Hong Kong SAR, China diabetes 7.66000000000000%",
+                "radius": 9.575
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 47.0,
+                "longitude": 20.0,
+                "name": "Hungary diabetes 5.94000000000000%",
+                "radius": 7.425000000000001
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 65.0,
+                "longitude": -18.0,
+                "name": "Iceland diabetes 3.20000000000000%",
+                "radius": 4.0
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 20.0,
+                "longitude": 77.0,
+                "name": "India diabetes 9.11000000000000%",
+                "radius": 11.3875
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -5.0,
+                "longitude": 120.0,
+                "name": "Indonesia diabetes 6.03000000000000%",
+                "radius": 7.5375
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 32.0,
+                "longitude": 53.0,
+                "name": "Iran, Islamic Rep. diabetes 10.01000000000000%",
+                "radius": 12.5125
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 33.0,
+                "longitude": 44.0,
+                "name": "Iraq diabetes 9.60000000000000%",
+                "radius": 12.0
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 53.0,
+                "longitude": -8.0,
+                "name": "Ireland diabetes 5.37000000000000%",
+                "radius": 6.7125
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 31.5,
+                "longitude": 34.75,
+                "name": "Israel diabetes 5.46000000000000%",
+                "radius": 6.825
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 42.8333333333,
+                "longitude": 12.8333333333,
+                "name": "Italy diabetes 4.93000000000000%",
+                "radius": 6.1625
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 18.25,
+                "longitude": -77.5,
+                "name": "Jamaica diabetes 10.53000000000000%",
+                "radius": 13.1625
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 36.0,
+                "longitude": 138.0,
+                "name": "Japan diabetes 5.12000000000000%",
+                "radius": 6.4
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 31.0,
+                "longitude": 36.0,
+                "name": "Jordan diabetes 11.45000000000000%",
+                "radius": 14.3125
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 48.0,
+                "longitude": 68.0,
+                "name": "Kazakhstan diabetes 5.01000000000000%",
+                "radius": 6.2625
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 1.0,
+                "longitude": 38.0,
+                "name": "Kenya diabetes 4.54000000000000%",
+                "radius": 5.675
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 1.41666666667,
+                "longitude": 173.0,
+                "name": "Kiribati diabetes 26.43000000000000%",
+                "radius": 33.037499999999994
+            }, {
+                "fillKey": "Low income",
+                "latitude": 40.0,
+                "longitude": 127.0,
+                "name": "Korea, Dem. People's Rep. diabetes 6.15000000000000%",
+                "radius": 7.6875
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 37.0,
+                "longitude": 127.5,
+                "name": "Korea, Rep. diabetes 5.97000000000000%",
+                "radius": 7.4624999999999995
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 29.366667,
+                "longitude": 47.966667,
+                "name": "Kuwait diabetes 23.13000000000000%",
+                "radius": 28.912499999999998
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 41.0,
+                "longitude": 75.0,
+                "name": "Kyrgyz Republic diabetes 6.30000000000000%",
+                "radius": 7.875
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 18.0,
+                "longitude": 105.0,
+                "name": "Lao PDR diabetes 5.03000000000000%",
+                "radius": 6.2875
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 57.0,
+                "longitude": 25.0,
+                "name": "Latvia diabetes 4.98000000000000%",
+                "radius": 6.2250000000000005
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 33.8333333333,
+                "longitude": 35.8333333333,
+                "name": "Lebanon diabetes 14.92000000000000%",
+                "radius": 18.65
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -29.5,
+                "longitude": 28.5,
+                "name": "Lesotho diabetes 4.50000000000000%",
+                "radius": 5.625
+            }, {
+                "fillKey": "Low income",
+                "latitude": 6.5,
+                "longitude": -9.5,
+                "name": "Liberia diabetes 3.79000000000000%",
+                "radius": 4.7375
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 25.0,
+                "longitude": 17.0,
+                "name": "Libya diabetes 9.79000000000000%",
+                "radius": 12.237499999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 47.2666666667,
+                "longitude": 9.53333333333,
+                "name": "Liechtenstein diabetes 5.40000000000000%",
+                "radius": 6.75
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 56.0,
+                "longitude": 24.0,
+                "name": "Lithuania diabetes 3.82000000000000%",
+                "radius": 4.775
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 49.75,
+                "longitude": 6.16666666667,
+                "name": "Luxembourg diabetes 4.53000000000000%",
+                "radius": 5.6625000000000005
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 22.1666666667,
+                "longitude": 113.55,
+                "name": "Macao SAR, China diabetes 8.63000000000000%",
+                "radius": 10.787500000000001
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 41.8333333333,
+                "longitude": 22.0,
+                "name": "Macedonia, FYR diabetes 9.76000000000000%",
+                "radius": 12.2
+            }, {
+                "fillKey": "Low income",
+                "latitude": -20.0,
+                "longitude": 47.0,
+                "name": "Madagascar diabetes 3.73000000000000%",
+                "radius": 4.6625
+            }, {
+                "fillKey": "Low income",
+                "latitude": -13.5,
+                "longitude": 34.0,
+                "name": "Malawi diabetes 5.59000000000000%",
+                "radius": 6.987499999999999
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 2.5,
+                "longitude": 112.5,
+                "name": "Malaysia diabetes 17.64000000000000%",
+                "radius": 22.05
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 3.25,
+                "longitude": 73.0,
+                "name": "Maldives diabetes 9.41000000000000%",
+                "radius": 11.762500000000001
+            }, {
+                "fillKey": "Low income",
+                "latitude": 17.0,
+                "longitude": -4.0,
+                "name": "Mali diabetes 1.60000000000000%",
+                "radius": 2.0
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 35.8333333333,
+                "longitude": 14.5833333333,
+                "name": "Malta diabetes 7.33000000000000%",
+                "radius": 9.1625
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 9.0,
+                "longitude": 168.0,
+                "name": "Marshall Islands diabetes 37.06000000000000%",
+                "radius": 46.325
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 20.0,
+                "longitude": -12.0,
+                "name": "Mauritania diabetes 5.22000000000000%",
+                "radius": 6.525
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -20.2833333333,
+                "longitude": 57.55,
+                "name": "Mauritius diabetes 21.15000000000000%",
+                "radius": 26.437499999999996
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 23.0,
+                "longitude": -102.0,
+                "name": "Mexico diabetes 12.63000000000000%",
+                "radius": 15.787500000000001
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 6.91666666667,
+                "longitude": 158.25,
+                "name": "Micronesia, Fed. Sts. diabetes 36.30000000000000%",
+                "radius": 45.375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 47.0,
+                "longitude": 29.0,
+                "name": "Moldova diabetes 2.52000000000000%",
+                "radius": 3.15
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 43.732778,
+                "longitude": 7.419722,
+                "name": "Monaco diabetes 5.35000000000000%",
+                "radius": 6.687499999999999
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 46.0,
+                "longitude": 105.0,
+                "name": "Mongolia diabetes 7.50000000000000%",
+                "radius": 9.375
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 42.5,
+                "longitude": 19.3,
+                "name": "Montenegro diabetes 9.82000000000000%",
+                "radius": 12.275
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 32.0,
+                "longitude": -5.0,
+                "name": "Morocco diabetes 7.88000000000000%",
+                "radius": 9.85
+            }, {
+                "fillKey": "Low income",
+                "latitude": -18.25,
+                "longitude": 35.0,
+                "name": "Mozambique diabetes 2.82000000000000%",
+                "radius": 3.5249999999999995
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 22.0,
+                "longitude": 98.0,
+                "name": "Myanmar diabetes 6.14000000000000%",
+                "radius": 7.675
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -22.0,
+                "longitude": 17.0,
+                "name": "Namibia diabetes 6.86000000000000%",
+                "radius": 8.575000000000001
+            }, {
+                "fillKey": "Low income",
+                "latitude": 28.0,
+                "longitude": 84.0,
+                "name": "Nepal diabetes 4.96000000000000%",
+                "radius": 6.2
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 52.5,
+                "longitude": 5.75,
+                "name": "Netherlands diabetes 5.00000000000000%",
+                "radius": 6.25
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": -21.5,
+                "longitude": 165.5,
+                "name": "New Caledonia diabetes 20.06000000000000%",
+                "radius": 25.074999999999996
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": -41.0,
+                "longitude": 174.0,
+                "name": "New Zealand diabetes 9.90000000000000%",
+                "radius": 12.375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 13.0,
+                "longitude": -85.0,
+                "name": "Nicaragua diabetes 12.45000000000000%",
+                "radius": 15.562499999999998
+            }, {
+                "fillKey": "Low income",
+                "latitude": 16.0,
+                "longitude": 8.0,
+                "name": "Niger diabetes 4.18000000000000%",
+                "radius": 5.225
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 10.0,
+                "longitude": 8.0,
+                "name": "Nigeria diabetes 5.27000000000000%",
+                "radius": 6.587499999999999
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 62.0,
+                "longitude": 10.0,
+                "name": "Norway diabetes 5.24000000000000%",
+                "radius": 6.550000000000001
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 32.0,
+                "longitude": 35.25,
+                "name": "West Bank and Gaza diabetes 9.16000000000000%",
+                "radius": 11.450000000000001
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 21.0,
+                "longitude": 57.0,
+                "name": "Oman diabetes 14.49000000000000%",
+                "radius": 18.1125
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 30.0,
+                "longitude": 70.0,
+                "name": "Pakistan diabetes 7.93000000000000%",
+                "radius": 9.9125
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 7.5,
+                "longitude": 134.5,
+                "name": "Palau diabetes 18.46000000000000%",
+                "radius": 23.075000000000003
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 9.0,
+                "longitude": -80.0,
+                "name": "Panama diabetes 8.54000000000000%",
+                "radius": 10.674999999999999
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -6.0,
+                "longitude": 147.0,
+                "name": "Papua New Guinea diabetes 6.33000000000000%",
+                "radius": 7.9125
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -23.0,
+                "longitude": -58.0,
+                "name": "Paraguay diabetes 7.00000000000000%",
+                "radius": 8.75
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -10.0,
+                "longitude": -76.0,
+                "name": "Peru diabetes 6.54000000000000%",
+                "radius": 8.175
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 13.0,
+                "longitude": 122.0,
+                "name": "Philippines diabetes 6.71000000000000%",
+                "radius": 8.387500000000001
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 52.0,
+                "longitude": 20.0,
+                "name": "Poland diabetes 5.63000000000000%",
+                "radius": 7.0375
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 39.5,
+                "longitude": -8.0,
+                "name": "Portugal diabetes 9.59000000000000%",
+                "radius": 11.987499999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 18.25,
+                "longitude": -66.5,
+                "name": "Puerto Rico diabetes 12.98000000000000%",
+                "radius": 16.225
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 25.5,
+                "longitude": 51.25,
+                "name": "Qatar diabetes 19.78000000000000%",
+                "radius": 24.725
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 46.0,
+                "longitude": 25.0,
+                "name": "Romania diabetes 7.99000000000000%",
+                "radius": 9.9875
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 60.0,
+                "longitude": 100.0,
+                "name": "Russian Federation diabetes 5.03000000000000%",
+                "radius": 6.2875
+            }, {
+                "fillKey": "Low income",
+                "latitude": -2.0,
+                "longitude": 30.0,
+                "name": "Rwanda diabetes 6.25000000000000%",
+                "radius": 7.8125
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 17.3333333333,
+                "longitude": -62.75,
+                "name": "St. Kitts and Nevis diabetes 12.55000000000000%",
+                "radius": 15.687500000000002
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 13.8833333333,
+                "longitude": -60.9666666667,
+                "name": "St. Lucia diabetes 8.31000000000000%",
+                "radius": 10.387500000000001
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 13.25,
+                "longitude": -61.2,
+                "name": "St. Vincent and the Grenadines diabetes 9.95000000000000%",
+                "radius": 12.437499999999998
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -13.5833333333,
+                "longitude": -172.333333333,
+                "name": "Samoa diabetes 7.64000000000000%",
+                "radius": 9.55
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 43.933333,
+                "longitude": 12.4166666667,
+                "name": "San Marino diabetes 5.35000000000000%",
+                "radius": 6.687499999999999
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 1.0,
+                "longitude": 7.0,
+                "name": "S\u00e3o Tom\u00e9 and Principe diabetes 5.88000000000000%",
+                "radius": 7.35
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 25.0,
+                "longitude": 45.0,
+                "name": "Saudi Arabia diabetes 23.90000000000000%",
+                "radius": 29.874999999999996
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 14.0,
+                "longitude": -14.0,
+                "name": "Senegal diabetes 5.14000000000000%",
+                "radius": 6.425
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 44.0,
+                "longitude": 21.0,
+                "name": "Serbia diabetes 9.75000000000000%",
+                "radius": 12.1875
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": -4.58333333333,
+                "longitude": 55.6666666667,
+                "name": "Seychelles diabetes 11.98000000000000%",
+                "radius": 14.975
+            }, {
+                "fillKey": "Low income",
+                "latitude": 8.5,
+                "longitude": -11.5,
+                "name": "Sierra Leone diabetes 3.76000000000000%",
+                "radius": 4.7
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 1.36666666667,
+                "longitude": 103.8,
+                "name": "Singapore diabetes 10.79000000000000%",
+                "radius": 13.487499999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 18.04167,
+                "longitude": -63.06667,
+                "name": "Sint Maarten (Dutch part) diabetes 12.77000000000000%",
+                "radius": 15.962499999999999
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 48.6666666667,
+                "longitude": 19.5,
+                "name": "Slovak Republic diabetes 7.21000000000000%",
+                "radius": 9.0125
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 46.1166666667,
+                "longitude": 14.8166666667,
+                "name": "Slovenia diabetes 7.17000000000000%",
+                "radius": 8.9625
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -8.0,
+                "longitude": 159.0,
+                "name": "Solomon Islands diabetes 16.12000000000000%",
+                "radius": 20.150000000000002
+            }, {
+                "fillKey": "Low income",
+                "latitude": 10.0,
+                "longitude": 49.0,
+                "name": "Somalia diabetes 7.29000000000000%",
+                "radius": 9.112499999999999
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -29.0,
+                "longitude": 24.0,
+                "name": "South Africa diabetes 9.36000000000000%",
+                "radius": 11.7
+            }, {
+                "fillKey": "Low income",
+                "latitude": 8.0,
+                "longitude": 30.0,
+                "name": "South Sudan diabetes 10.08000000000000%",
+                "radius": 12.6
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 40.0,
+                "longitude": -4.0,
+                "name": "Spain diabetes 7.85000000000000%",
+                "radius": 9.812499999999998
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 7.0,
+                "longitude": 81.0,
+                "name": "Sri Lanka diabetes 7.80000000000000%",
+                "radius": 9.75
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 15.0,
+                "longitude": 30.0,
+                "name": "Sudan diabetes 17.91000000000000%",
+                "radius": 22.3875
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 4.0,
+                "longitude": -56.0,
+                "name": "Suriname diabetes 10.83000000000000%",
+                "radius": 13.5375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -26.5,
+                "longitude": 31.5,
+                "name": "Swaziland diabetes 4.33000000000000%",
+                "radius": 5.4125
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 62.0,
+                "longitude": 15.0,
+                "name": "Sweden diabetes 4.51000000000000%",
+                "radius": 5.637499999999999
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 47.0,
+                "longitude": 8.0,
+                "name": "Switzerland diabetes 5.63000000000000%",
+                "radius": 7.0375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 35.0,
+                "longitude": 38.0,
+                "name": "Syrian Arab Republic diabetes 8.79000000000000%",
+                "radius": 10.987499999999999
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 39.0,
+                "longitude": 71.0,
+                "name": "Tajikistan diabetes 6.44000000000000%",
+                "radius": 8.05
+            }, {
+                "fillKey": "Low income",
+                "latitude": -6.0,
+                "longitude": 35.0,
+                "name": "Tanzania diabetes 9.15000000000000%",
+                "radius": 11.4375
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 15.0,
+                "longitude": 100.0,
+                "name": "Thailand diabetes 7.36000000000000%",
+                "radius": 9.2
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -8.83333333333,
+                "longitude": 125.916666667,
+                "name": "Timor-Leste diabetes 6.76000000000000%",
+                "radius": 8.45
+            }, {
+                "fillKey": "Low income",
+                "latitude": 8.0,
+                "longitude": 1.16666666667,
+                "name": "Togo diabetes 4.72000000000000%",
+                "radius": 5.8999999999999995
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -20.0,
+                "longitude": -175.0,
+                "name": "Tonga diabetes 14.76000000000000%",
+                "radius": 18.45
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 11.0,
+                "longitude": -61.0,
+                "name": "Trinidad and Tobago diabetes 13.09000000000000%",
+                "radius": 16.3625
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 34.0,
+                "longitude": 9.0,
+                "name": "Tunisia diabetes 9.41000000000000%",
+                "radius": 11.762500000000001
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 39.0,
+                "longitude": 35.0,
+                "name": "Turkey diabetes 14.84000000000000%",
+                "radius": 18.55
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": 40.0,
+                "longitude": 60.0,
+                "name": "Turkmenistan diabetes 5.01000000000000%",
+                "radius": 6.2625
+            }, {
+                "fillKey": "Upper middle income",
+                "latitude": -8.0,
+                "longitude": 178.0,
+                "name": "Tuvalu diabetes 15.33000000000000%",
+                "radius": 19.162499999999998
+            }, {
+                "fillKey": "Low income",
+                "latitude": 1.0,
+                "longitude": 32.0,
+                "name": "Uganda diabetes 5.19000000000000%",
+                "radius": 6.4875
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 49.0,
+                "longitude": 32.0,
+                "name": "Ukraine diabetes 2.58000000000000%",
+                "radius": 3.225
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 24.0,
+                "longitude": 54.0,
+                "name": "United Arab Emirates diabetes 19.02000000000000%",
+                "radius": 23.775
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 54.0,
+                "longitude": -2.0,
+                "name": "United Kingdom diabetes 3.90000000000000%",
+                "radius": 4.875
+            }, {
+                "fillKey": "High income: OECD",
+                "latitude": 38.0,
+                "longitude": -97.0,
+                "name": "United States diabetes 9.39000000000000%",
+                "radius": 11.7375
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": -33.0,
+                "longitude": -56.0,
+                "name": "Uruguay diabetes 5.76000000000000%",
+                "radius": 7.199999999999999
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 41.0,
+                "longitude": 64.0,
+                "name": "Uzbekistan diabetes 6.43000000000000%",
+                "radius": 8.0375
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -16.0,
+                "longitude": 167.0,
+                "name": "Vanuatu diabetes 23.71000000000000%",
+                "radius": 29.6375
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 8.0,
+                "longitude": -66.0,
+                "name": "Venezuela, RB diabetes 6.86000000000000%",
+                "radius": 8.575000000000001
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 16.1666666667,
+                "longitude": 107.833333333,
+                "name": "Vietnam diabetes 5.71000000000000%",
+                "radius": 7.137499999999999
+            }, {
+                "fillKey": "High income: nonOECD",
+                "latitude": 18.3333333333,
+                "longitude": -64.8333333333,
+                "name": "Virgin Islands (U.S.) diabetes 12.10000000000000%",
+                "radius": 15.125
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": 15.0,
+                "longitude": 48.0,
+                "name": "Yemen, Rep. diabetes 8.25000000000000%",
+                "radius": 10.3125
+            }, {
+                "fillKey": "Lower middle income",
+                "latitude": -15.0,
+                "longitude": 30.0,
+                "name": "Zambia diabetes 5.04000000000000%",
+                "radius": 6.3
+            }, {
+                "fillKey": "Low income",
+                "latitude": -20.0,
+                "longitude": 30.0,
+                "name": "Zimbabwe diabetes 9.34000000000000%",
+                "radius": 11.674999999999999
+            }];
+
+
+            var map = new Datamap({
+                // options begin
+                // options end
+                element: document.getElementById('container'),
+                responsive: true,
+                fills: {
+                    defaultFill: "#F2EFFA",
+                    "Low income": "#EE81EE",
+                    "Lower middle income": "#E228E2",
+                    "Upper middle income": "#A216A2",
+                    "High income: nonOECD": "#5A0C5A",
+                    "High income: OECD": "#240524"
+                },
+                geographyConfig: {
+                    highlightOnHover: true,
+                    popupOnHover: true,
+                }
+            });
+
+            map.bubbles(imported_data, {
+                popupTemplate: function(geo, data) {
+                    return "<div class='hoverinfo'>" + data.name + "</div>";
+                }
+            });
+
+            map.legend();
+    </script>
+    </body>
+</html>
